@@ -1,4 +1,4 @@
-# 8.0 Jedi Training (20pts)  Name:________________
+# 8.0 Jedi Training (20pts)  Name: Logan Knisley
 
 '''
 1.)  AVERAGE LIST:  (3pts)
@@ -12,13 +12,25 @@ a_list = [3,12,3,5,3,4,6,8,5,3,5,6,3,2,4]
 b_list = [4,15,2,7,8,3,1,10,9]
 c_list = [5,10,13,12,5,9,2,6,1,8,8,9,11,13,14,8,2,2,6,3,9,8,10]
 
-
+chain = a_list
+mean = 0
+for item in chain:
+    mean += item
+print(mean / len(chain))
 
 '''
 2.) USERNAME:  (3pts)
 Write a program that will strip the username (whatever is in front of the @ symbol)
 from any e-mail address and print it. First ask the user for their e-mail address.
 '''
+email = input("Insert your email address: ")
+username = ""
+for letter in email:
+    if letter == "@":
+        break
+    else:
+        username += letter
+print(username)
 
 
 
@@ -34,8 +46,8 @@ TEXT FORMATTING:  (4pts)
      '''
 score = 41237
 highscore = 1023407
-print("Score:      " + str(score) )
-print("High score: " + str(highscore) )
+print(f"Score: {score:>15,}")
+print(f"High score: {highscore:>10,}")
 
 
 '''
@@ -45,8 +57,14 @@ From the user input number, slice the string below in your program to print the 
 Keep repeating this until the user enters a non 1-12 number to quit.
 Once the user quits, print "Goodbye!"
 '''
-
 months = "JanFebMarAprMayJunJulAugSepOctNovDec"
+while True:
+    mon = int(input("Enter a number: "))
+    if mon > 12:
+        break
+    else:
+        shorthand = months[(mon * 3) - 3:(mon * 3)]
+        print(shorthand)
 
 
 
@@ -61,4 +79,16 @@ Extra Challenge: Instead of printing out 41 lines of text to look at, can you de
 along with the shift number?
 '''
 Secret_Message="Lxwp{j}~uj}rxw|*)bx~)l{jltnm)}qn)lxmn7)]qn)ox{ln)r|)\][XWP)r}q)x~*"
+
+for i in range(-20, 20):
+    word = ""
+    for char in Secret_Message:
+        num = ord(char)
+        num += i
+        word += chr(num)
+    if i == -9:
+        print("Shift number:", i)
+        print(word)
+        break
+
 
